@@ -4,6 +4,7 @@ A comprehensive web application that leverages various technologies to provide a
 
 ## Features
 
+- Shadcn/ui for component styling
 - Tailwind design
 - Tailwind animations and effects
 - Full responsiveness
@@ -18,8 +19,8 @@ A comprehensive web application that leverages various technologies to provide a
 - Stripe monthly subscription
 - Free tier with API limiting
 - How to write POST, DELETE, and GET routes in route handlers (app/api)
-- How to fetch data in server react components by directly accessing the database (WITHOUT API! like Magic!)
-- How to handle relations between Server and Child components!
+- How to fetch data in server react components by directly accessing the database (WITHOUT API!)
+- How to handle relations between Server and Child components
 - How to reuse layouts
 - Folder structure in Next 13 App Router
 
