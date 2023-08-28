@@ -17,7 +17,7 @@ export async function POST(req: Request) {
     }
 
     if (!openai.apiKey) {
-      return new NextResponse("OpenAI API Key note configured", {
+      return new NextResponse("OpenAI API Key not configured", {
         status: 500,
       });
     }
