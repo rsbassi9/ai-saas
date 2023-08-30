@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
   SelectContent,
+  SelectItem,
 } from "@/components/ui/select";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
@@ -22,7 +23,7 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-import { formSchema } from "./constants";
+import { amountOptions, formSchema } from "./constants";
 
 const ImagePage = () => {
   const router = useRouter();
@@ -116,7 +117,13 @@ const ImagePage = () => {
                           <SelectValue defaultValue={field.value} />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent></SelectContent>
+                      <SelectContent>
+                        {amountOptions.map((option) => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
                     </Select>
                   </FormItem>
                 )}
