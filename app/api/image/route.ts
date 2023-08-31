@@ -41,7 +41,7 @@ export async function POST(req: Request) {
       size: resolution,
     });
 
-    return NextResponse.json(response.data.data);
+    return NextResponse.json(response.data); //return NextResponse.json(response.data.data)
   } catch (error) {
     console.log("[IMAGE_ERROR]", error);
     return new NextResponse("Internal error", { status: 500 });
