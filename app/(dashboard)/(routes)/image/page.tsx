@@ -177,19 +177,23 @@ const ImagePage = () => {
           )}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-4">
             {images.map((src) => (
-              <Card key={src} className="rounded-lg overflow-hidden">
+              <Card
+                key={src}
+                className="rounded-lg overflow-hidden flex flex-col"
+              >
                 <div className="relative aspect-square">
                   <Image alt="Image" fill src={src} />
-                  <CardFooter className="p-2">
-                    <Button
-                      onClick={() => window.open(src)}
-                      variant="secondary"
-                      className="w-full"
-                    >
-                      <Download className="h-4 w-4 mr-2" />
-                      Download
-                    </Button>
-                  </CardFooter>
+                </div>
+                <div className="flex-grow flex justify-center items-end p-2">
+                  <Button
+                    onClick={() => window.open(src)}
+                    variant="secondary"
+                    className="w-full"
+                    style={{ zIndex: 2 }}
+                  >
+                    <Download className="h-4 w-4 mr-2" />
+                    Download
+                  </Button>
                 </div>
               </Card>
             ))}
