@@ -32,7 +32,7 @@ export const increaseApiLimit = async () => {
 };
 
 // util to check if a user has reached the limit of free useage
-export const CheckApiLimit = async () => {
+export const checkApiLimit = async () => {
   const { userId } = auth();
 
   if (!userId) {
