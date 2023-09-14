@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
 import { cn } from "@/lib/utils";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
 
@@ -27,6 +28,7 @@ interface ChatCompletionRequestMessage {
 }
 
 const CodePage = () => {
+  const proModal = useProModal();
   const router = useRouter();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
 
@@ -55,8 +57,9 @@ const CodePage = () => {
 
       form.reset();
     } catch (error: any) {
-      // TODO: Open Pro Modal
-      console.log(error);
+      if (error?.response?.status === 403) {
+        proModal.onOpen();
+      }
     } finally {
       router.refresh();
     }
