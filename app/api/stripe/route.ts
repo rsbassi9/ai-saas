@@ -22,7 +22,8 @@ export async function GET() {
       },
     });
 
-    // allow user to use billing portal and return to settings page after subscription
+    // allow user to use billing portal and return to settings page after subscription.
+    // This either allows the user to cancel or upgrade the subscription
     if (userSubscription && userSubscription.stripeCustomerId) {
       const stripeSession = await stripe.billingPortal.sessions.create({
         customer: userSubscription.stripeCustomerId,
@@ -32,7 +33,7 @@ export async function GET() {
       return new NextResponse(JSON.stringify({ url: stripeSession.url }));
     }
 
-    // If there is no stripe subscription:
+    // If there is no stripe subscription, allow the user to create it for the very first time:
 
     const stripeSession = await stripe.checkout.sessions.create({
       success_url: settingsUrl,
